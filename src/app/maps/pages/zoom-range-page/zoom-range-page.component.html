@@ -1,1 +1,26 @@
-<p>zoom-ranges-page works!</p>
+<div id="map2" #map2></div>
+
+<div class="floating-range p-2">
+  <div class="floating-content">
+    <button (click)="zoomOut()" class="btn btn-primary">-</button>
+
+    <input
+      type="range"
+      class="form-range"
+      min="-2"
+      max="18"
+      step="0.01"
+      [value]="zoom"
+      (input)="zoomChanged( zoomInput.value )"
+      #zoomInput
+    />
+
+    <button (click)="zoomIn()" class="btn btn-primary">+</button>
+  </div>
+
+  <span class="form-label">
+    Zoom: {{ zoom | number : "2.2-2" }}
+    <br />
+    Lng: {{ currentLngLat.lng }}, Lat: {{ currentLngLat.lat }}
+  </span>
+</div>
