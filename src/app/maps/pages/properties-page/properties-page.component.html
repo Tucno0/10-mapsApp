@@ -2,7 +2,7 @@
   <div class="col-2"></div>
 
   <div class="col">
-    <h3>Listao de propiedades</h3>
+    <h3>Lista de propiedades</h3>
 
     <hr>
   </div>
@@ -16,7 +16,7 @@
     <div class="row">
 
       <!-- Houses -->
-      <div *ngFor="let house of houses" class="col mb-2">
+      <div *ngFor="let house of houses" class="col-12 col-sm-6 col-md-4 mb-2">
         <div class="card">
           <!-- <img src="..." alt="" class="card-img-top"> -->
           <map-mini-map class="card-img-top" [lngLat]="house.lngLat"></map-mini-map>
@@ -26,6 +26,10 @@
             <p class="card-text"> {{house.description}}</p>
           </div>
         </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-md-4 mb-2">
+        <counter-alone [counter]="25"></counter-alone>
       </div>
     </div>
   </div>
