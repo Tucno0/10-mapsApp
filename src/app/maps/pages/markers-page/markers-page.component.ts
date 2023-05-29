@@ -75,6 +75,11 @@ export class MarkersPageComponent {
     } ); // Se agrega el marker al array de markers
 
     this.saveToLocalStorage( ); // Se guarda en el local storage
+
+    marker.on('dragend', () => {
+      this.saveToLocalStorage( ); // Se guarda en el local storage cuando se termina de arrastrar el marker
+    }
+    );
   }
 
   removeMarker( index: number ): void {
@@ -82,6 +87,8 @@ export class MarkersPageComponent {
 
     this.markers[index].marker.remove(); // Se remueve el marker del mapa
     this.markers.splice( index, 1 ); // Se remueve el marker del array de markers
+
+    this.saveToLocalStorage( ); // Se guarda en el local storage
   }
 
   flyTo( marker: Marker) {
